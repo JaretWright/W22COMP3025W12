@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/student_selector"
+    android:layout_margin="10dp"
+    android:clickable="true"
+    android:focusable="true">
+
+    <TextView
+        android:id="@+id/studentNumTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="200021"
+        android:textSize="20sp"
+        android:padding="3dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/nameTextView"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/nameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Fred Flintstone"
+        android:textSize="20sp"
+        android:padding="3dp"
+        app:layout_constraintStart_toEndOf="@id/studentNumTextView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/averageGradeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        tools:text="Average Grade = 95"
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@id/studentNumTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="5dp"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

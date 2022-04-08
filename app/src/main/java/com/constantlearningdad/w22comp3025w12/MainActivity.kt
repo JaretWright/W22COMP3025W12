@@ -2,12 +2,18 @@ package com.constantlearningdad.w22comp3025w12
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import androidx.activity.viewModels
+import com.constantlearningdad.w22comp3025w12.databinding.ActivityMainBinding
 import com.google.firebase.firestore.FirebaseFirestore
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding : ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         //Only doing this to define some "default" students' in the Firestore database
 //        var student1 = Student(20001, "Fred Flintstone", HashMap())
@@ -50,5 +56,9 @@ class MainActivity : AppCompatActivity() {
 //        db.document().set(student4)
 //        db.document().set(student5)
 
+        val viewModel : StudentViewModel by viewModels()
+        viewModel.getStudents().observe(this, {students ->
+            binding.recyclerView.adapter = StudentAdapter(this, students)
+        })
     }
 }
